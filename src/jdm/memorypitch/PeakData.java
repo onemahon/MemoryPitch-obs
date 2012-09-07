@@ -34,56 +34,73 @@ public class PeakData {
 	
 	
 	public double frequency, power, certainty;
-	public float flatNote;
-	public float sharpNote;
+	public double pitchNote;
 	
 	public PeakData(double freq, double pow, double cert) {
 		frequency = freq;
 		power = pow;
 		certainty = cert;
-		
-		setNotes();
+		pitchNote = getPitch(freq);
 	}
 	
-	public void setNotes() {
-		double freq = frequency;
+	public double getPitch(double freq) {
 		if (freq > 440) {
 			while (freq > 440) freq /= 2;
 		} else {
 			while (freq < 440) freq *= 2;
 		}
 		
-		/*
-		 * find the closest pitch based on the new "freq" variable
-		 */
-		double flatPitch = findClosestFlatPitch(freq);
-		
-		
+		return getRoundedPitch(freq);	
 	}
 	
 	/**
 	 * Designed to be called once you have a frequency that is found within the standard bounds of 233 to 440 Hz.
 	 * @param frequency
 	 */
-	private double findClosestFlatPitch(double frequency) {		
-		if (frequency > PitchesFlats.Bb && frequency < PitchesFlats.B)
+	private double getRoundedPitch(double frequency) {
+		// TODO not 100% accurate, since we're assuming the pitch is anywhere ABOVE the given frequency
+		if (frequency > PitchesFlats.Bb && frequency <= PitchesFlats.B)
 			return PitchesFlats.Bb;
-		if (frequency > PitchesFlats.B && frequency < PitchesFlats.C)
-			return PitchesFlats.Bb;
-		if (frequency > PitchesFlats.Bb && frequency < PitchesFlats.B)
-			return PitchesFlats.Bb;
-		if (frequency > PitchesFlats.Bb && frequency < PitchesFlats.B)
-			return PitchesFlats.Bb;
-		if (frequency > PitchesFlats.Bb && frequency < PitchesFlats.B)
-			return PitchesFlats.Bb;
-		if (frequency > PitchesFlats.Bb && frequency < PitchesFlats.B)
-			return PitchesFlats.Bb;
-		if (frequency > PitchesFlats.Bb && frequency < PitchesFlats.B)
-			return PitchesFlats.Bb;
+		if (frequency > PitchesFlats.B && frequency <= PitchesFlats.C)
+			return PitchesFlats.B;
+		if (frequency > PitchesFlats.C && frequency <= PitchesFlats.Db)
+			return PitchesFlats.C;
+		if (frequency > PitchesFlats.Db && frequency <= PitchesFlats.D)
+			return PitchesFlats.Db;
+		if (frequency > PitchesFlats.D && frequency <= PitchesFlats.Eb)
+			return PitchesFlats.D;
+		if (frequency > PitchesFlats.Eb && frequency <= PitchesFlats.E)
+			return PitchesFlats.Eb;
+		if (frequency > PitchesFlats.E && frequency <= PitchesFlats.F)
+			return PitchesFlats.E;
+		if (frequency > PitchesFlats.F && frequency <= PitchesFlats.Gb)
+			return PitchesFlats.F;
+		if (frequency > PitchesFlats.Gb && frequency <= PitchesFlats.G)
+			return PitchesFlats.Gb;
+		if (frequency > PitchesFlats.G && frequency <= PitchesFlats.Ab)
+			return PitchesFlats.G;
+		if (frequency > PitchesFlats.Ab && frequency <= PitchesFlats.A)
+			return PitchesFlats.Ab;
+		if (frequency > PitchesFlats.A && frequency <= PitchesFlats.Bb)
+			return PitchesFlats.A;
+		return -1;
+	}
+	
+	public String getFlatPitchLetter() {
+		if (pitchNote == PitchesFlats.A) return "A";
+		if (pitchNote == PitchesFlats.Ab) return "Ab";
+		if (pitchNote == PitchesFlats.B) return "B";
+		if (pitchNote == PitchesFlats.Bb) return "Bb";
+		if (pitchNote == PitchesFlats.C) return "C";
+		if (pitchNote == PitchesFlats.D) return "D";
+		if (pitchNote == PitchesFlats.Db) return "Db";
+		if (pitchNote == PitchesFlats.E) return "E";
+		if (pitchNote == PitchesFlats.Eb) return "Eb";
+		if (pitchNote == PitchesFlats.F) return "F";
+		if (pitchNote == PitchesFlats.G) return "G";
+		if (pitchNote == PitchesFlats.Gb) return "Gb";
 		
-		else return PitchesFlats.A;
-		
-		
+		return "";
 	}
 	
 	

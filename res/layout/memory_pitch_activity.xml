@@ -20,5 +20,14 @@
             android:layout_marginTop="41dp"
             android:text="0"
             android:textSize="42dp" />
-
+        <TextView
+            android:id="@+id/pitch_output_letter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pitch_output_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="41dp"
+            android:text="H..."
+            android:textSize="42dp" />
+        
 </RelativeLayout>

@@ -12,7 +12,7 @@ import dsp.AudioProcessing;
 import dsp.AudioProcessingListener;
 
 public class MemoryPitchActivity extends Activity {
-	private TextView pitchOutput;
+	private TextView pitchOutput, pitchLetter;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class MemoryPitchActivity extends Activity {
 		setContentView(R.layout.memory_pitch_activity);
 
 		pitchOutput = (TextView) findViewById(R.id.pitch_output_button);
-		pitchOutput.setText("starting...");
+		pitchLetter = (TextView) findViewById(R.id.pitch_output_letter);
 		
 		buildProcessor();
 		
@@ -49,6 +49,7 @@ public class MemoryPitchActivity extends Activity {
 				runOnUiThread(new Runnable() {
 					public void run() {
 						pitchOutput.setText(String.format("%.1f", peak.frequency)+" hz");
+						pitchLetter.setText(peak.getFlatPitchLetter());
 					}
 				});
 			}
