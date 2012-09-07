@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/45/trunk/AudioSpectrumAnalyzer/src/fft
+END
+FFTHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/45/trunk/AudioSpectrumAnalyzer/src/fft/FFTHelper.java
+END
+FFT.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/44/trunk/AudioSpectrumAnalyzer/src/fft/FFT.java
+END
+Complex.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/25/trunk/AudioSpectrumAnalyzer/src/fft/Complex.java
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/43/trunk/AudioSpectrumAnalyzer/src/fft/Constants.java
+END

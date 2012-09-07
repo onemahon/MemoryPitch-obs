@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/46/trunk/AudioSpectrumAnalyzer/src/dsp
+END
+AudioProcessingListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/21/trunk/AudioSpectrumAnalyzer/src/dsp/AudioProcessingListener.java
+END
+SignalHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/44/trunk/AudioSpectrumAnalyzer/src/dsp/SignalHelper.java
+END
+AudioProcessing.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/46/trunk/AudioSpectrumAnalyzer/src/dsp/AudioProcessing.java
+END
