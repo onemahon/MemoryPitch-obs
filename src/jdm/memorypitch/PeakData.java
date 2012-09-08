@@ -46,8 +46,8 @@ public class PeakData {
 	public double getPitch(double freq) {
 		if (freq > 440) {
 			while (freq > 440) freq /= 2;
-		} else {
-			while (freq < 440) freq *= 2;
+		} else if (freq < 220){
+			while (freq < 220) freq *= 2;
 		}
 		
 		return getRoundedPitch(freq);	

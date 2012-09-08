@@ -50,9 +50,11 @@ public class AudioProcessing extends Thread {
 
 		mRecorder.startRecording();
 		
-		tempBuffer = new byte[2*mNumberOfFFTPoints];
+//		tempBuffer = new byte[2*mNumberOfFFTPoints];
 		while(!mStopped) {
+			byte[] tempBuffer = new byte[2*mNumberOfFFTPoints];
 			numberOfReadBytes = mRecorder.read(tempBuffer,0,2*mNumberOfFFTPoints);
+//			Log.d("processing", "example tempBuffer element: "+tempBuffer[15]);
 			if(numberOfReadBytes > 0) {
 				if(mFFT!=null) {
 					absNormalizedSignal = mFFT.calculateFFT(tempBuffer);
