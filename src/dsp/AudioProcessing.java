@@ -40,9 +40,7 @@ public class AudioProcessing extends Thread {
 		double[] absNormalizedSignal;
 		
 		mMinBufferSize = AudioRecord.getMinBufferSize((int)mSampleRateInHz,AudioFormat.CHANNEL_IN_MONO,AudioFormat.ENCODING_PCM_16BIT);
-		mRecorder = new AudioRecord(MediaRecorder.AudioSource.MIC,
-				(int)mSampleRateInHz, AudioFormat.CHANNEL_IN_MONO,
-				AudioFormat.ENCODING_PCM_16BIT, 10*mMinBufferSize);
+		mRecorder = new AudioRecord(MediaRecorder.AudioSource.MIC, (int)mSampleRateInHz, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT, 10*mMinBufferSize);
 		
 		if(mRecorder==null) {
 			throw new RuntimeException("Audio Recording Device was not initialized!!!");
@@ -50,9 +48,8 @@ public class AudioProcessing extends Thread {
 
 		mRecorder.startRecording();
 		
-//		tempBuffer = new byte[2*mNumberOfFFTPoints];
+		tempBuffer = new byte[2*mNumberOfFFTPoints];
 		while(!mStopped) {
-			byte[] tempBuffer = new byte[2*mNumberOfFFTPoints];
 			numberOfReadBytes = mRecorder.read(tempBuffer,0,2*mNumberOfFFTPoints);
 //			Log.d("processing", "example tempBuffer element: "+tempBuffer[15]);
 			if(numberOfReadBytes > 0) {
